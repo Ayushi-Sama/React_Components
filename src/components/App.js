@@ -9,6 +9,7 @@ import Note from "./Note";
 import Card from "./Card";
 import Avatar from "./Avatar";
 import contacts from "../contacts";
+import notes from "../notes";
 
 function createCard(contact) {
   return (
@@ -26,9 +27,14 @@ function createCard(contact) {
 function App() {
   return (
     <div>
-      <h1 className="heading">My Contacts</h1>
+      <Header />
+      {notes.map((x) => (
+        <Note key={x.id} title={x.title} content={x.content} />
+      ))}
+      <Footer />
+      {/* <h1 className="heading">My Contacts</h1>
       <Avatar img="https://picsum.photos/200" />
-      {contacts.map(createCard)}
+      {contacts.map(createCard)} */}
       {/* <Card
         name={contacts[0].name}
         img={contacts[0].img}
